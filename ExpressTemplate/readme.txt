@@ -1,0 +1,1 @@
+  projekt uruchamiamy wpisujac w konsole npm "npm start" nastepnie wchodzimy  na adres http://localhost:3000 lub 127.0.0.1:3000 co w praktyce oznacza ten sam adres :)
