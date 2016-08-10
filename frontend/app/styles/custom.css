@@ -1,11 +1,7 @@
 html, body {
   height: 100%;
 }
-body {
-  margin-left: 8%;
-  margin-right: 8%;
-}
 #map {
-  height: 80%;
+  height: 60%;
 
 }
