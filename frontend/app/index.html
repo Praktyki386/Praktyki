@@ -47,8 +47,11 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="LogInOutCtrl">
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <button type="button" class="btn btn-primary navbar-btn">Log in</button>
+            </li>
             <li><a href="#">
               User's Name <span class="glyphicon glyphicon-log-out" aria-label="Log out "aria-hidden="true"></span>
             </a></li>
@@ -56,6 +59,8 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+      
+      
 
     <div class="panel panel-default" ng-controller="MapCtrl" id="map"></div>
     <div class="panel panel-default" id="messages">recent messages</div>
