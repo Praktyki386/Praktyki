@@ -2,12 +2,12 @@ module.exports = function(app, passport) {
 
     // route for home page
     app.get('/', function(req, res) {
-        res.render('index.ejs'); // load the index.ejs file
+     console.log("hello_world"); 
     });
 
 
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
+          console.log("hello_world"); , {
             user : req.user 
         });
     });
