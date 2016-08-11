@@ -1,3 +1,5 @@
 module.exports = {
-	'url'	: 'mongodb://xxx:xxxxxxxxx@novus.modulusmongo.net:27017/yM5oryta'
-}
+
+    'url' : 'localhost:27017' // looks like mongodb://<user>:<pass>@mongo.onmodulus.net:27017/Mikha4ot
+
+};

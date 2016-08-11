@@ -1,7 +1,17 @@
-	module.exports = {
-		'googleAuth' : {
-			'clientID': ' 279413737461-8hrp5s39q0fcknh3bp8teer0bqjchmug.apps.googleusercontent.com ',
-			'clientSecret': 'd1sXc-sN8EoEigL-eAuN5DXe'  ,
-			'callbackURL': 'http://localhost:8080/auth/google/callback'
-		}
-	}
+
+
+
+
+
+
+
+module.exports = {
+
+
+	'googleAuth' : {
+        'clientID'      : '449146576649-vkns7i0037odrci9n31p4vq9ckat18b5.apps.googleusercontent.com',
+        'clientSecret'  : '-sfOQzoys-ymlapQmXOg2IWy',
+        'callbackURL'   : 'http://localhost:8080/auth/google/callback'
+    }
+
+};
