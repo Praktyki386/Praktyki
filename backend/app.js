@@ -6,5 +6,31 @@ app.get('/', function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+  console.log('Express app listening on port 3000!');
 });
+
+
+
+
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+passport.use(new GoogleStrategy({
+    clientID: '573206371038-nctb938nlkjqtqf1ou30ord5grc01r8h.apps.googleusercontent.com',
+    clientSecret: 'V9HjVx1GmB6OheN1EfJ7s8Fe',
+    callbackURL: "http://localhost:3000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, done) {
+      console.log(profile);
+      return done();
+  }
+));
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }));
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
