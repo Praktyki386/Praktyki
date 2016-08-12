@@ -30,7 +30,7 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    
     <!-- Add your site or application content here -->
     <nav class="navbar navbar-default" id="nav">
       <div class="container-fluid">
@@ -47,7 +47,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
 
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="LogInOutCtrl">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
               <button type="button" class="btn btn-primary navbar-btn">Log in</button>
@@ -59,10 +59,11 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+    
+    <div ng-controller="Example">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+    </div>
 
-
-
-    <div class="panel panel-default" ng-controller="MapCtrl" id="map"></div>
     <div class="panel panel-default" id="messages">recent messages</div>
     <div class="input-group">
       <input type="text" class="form-control" placeholder="What's up?">
@@ -100,6 +101,9 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
+    <script src="bower_components/lodash/dist/lodash.js"></script>
+    <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
