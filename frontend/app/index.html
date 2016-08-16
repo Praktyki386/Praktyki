@@ -50,7 +50,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <button type="button" class="btn btn-primary navbar-btn">Log in</button>
+                <a href="http://localhost:3000/" class="btn btn-info novbar-btn" role="button">Log in</a>
             </li>
             <li><a href="#">
               User's Name <span class="glyphicon glyphicon-log-out" aria-label="Log out "aria-hidden="true"></span>
@@ -60,7 +60,7 @@
       </div><!-- /.container-fluid -->
     </nav>
     
-    <div ng-controller="Example">
+    <div ng-controller="mapCtrl">
         <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
     </div>
 
