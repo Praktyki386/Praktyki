@@ -4,7 +4,10 @@
  "description": "",
  "main": "app.js",
  "scripts": {
-   "test": "echo \"Error: no test specified\" && exit 1"
+   "test": "echo \"Error: no test specified\" && exit 1",
+   "scripts": {
+    "postinstall" : "node -e \"var s='../src',d='node_modules/src',fs=require('fs');fs.exists(d,function(e){e||fs.symlinkSync(s,d,'dir')});\""
+  }
  },
  "author": "",
  "license": "ISC",

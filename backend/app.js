@@ -1,70 +1,45 @@
 var express = require('express');
 var session = require('express-session');
 var app = express();
+var port = process.env.PORT || 3000;
+var mongoose = require('mongoose');
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
-passport.use(new GoogleStrategy({
-	clientID: '573206371038-nctb938nlkjqtqf1ou30ord5grc01r8h.apps.googleusercontent.com',
-	clientSecret: 'V9HjVx1GmB6OheN1EfJ7s8Fe',
-	callbackURL: "http://localhost:3000/auth/google/callback"
-}, function(accessToken, refreshToken, profile, done) {
-	return done(null, {
-		id: profile.id,
-		username: profile.displayName,
-		photo: profile.photos.length ? profile.photos[0].value : null
-	});
-}
-));
+var configDB = require('./config/database.js');
 
-passport.serializeUser(function(user, done) {
-	done(null, user);
-});
+var flash    = require('connect-flash');
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
 
-passport.deserializeUser(function(user, done) {
-	done(null, user);
-});
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
 
-app.use(session({
-	secret: 'secret'
-}));
+require('./config/passport')(passport); // pass passport for configuration
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser()); // get information from html forms
+
+// required for passport
+app.use(session({ secret: 'MFQSMsgeL2uLZxD-UyUSVxdA' })); // session secret
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
+// this should change place where express is looking for index.ejs etc.
+var _dirname="../frontend/app";
+var path = require("path");
+app.set('views', path.join( _dirname,'/views')); 
+// and this ... fixed bower components loading
+app.use(express.static("../frontend" + '/app'));
+app.use('/bower_components',  express.static("../frontend/app" + '/bower_components'));
 
+// routes ======================================================================
+require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-app.get('/auth/google',
-	passport.authenticate('google', {
-		scope: ['https://www.googleapis.com/auth/plus.login']
-	}));
-
-app.get('/auth/google/callback',
-	passport.authenticate('google', {
-		failureRedirect: '/login'
-	}), function(req, res) {
-		res.redirect('/');
-	});
-
-
-app.get('/', function(req, res) {
-	var session = req.session;
-	var username = 'unknown user, please <a href="/auth/google">login</a>';
-	if (session.passport && session.passport.user && session.passport.user.username) {
-		username = session.passport.user.username;
-	}
-	res.send('Hello ' + username + '. ' + '<a href="/user">Click here for json</a>');
-});
-
-app.get('/user', function(req, res) {
-	var session = req.session;
-	var user = null;
-	if (session.passport && session.passport.user) {
-		user = session.passport.user;
-	}
-	res.send({
-		user: user
-	});
-});
-
-
-app.listen(3000);
+// launch ======================================================================
+app.listen(port);
+console.log('The listening on port ' + port);

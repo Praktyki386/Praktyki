@@ -1,0 +1,18 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/vendor/underscore/underscore-min.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/vendor/underscore/underscore.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/test/test-fp.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/test/remove.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/dist/lodash.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/test/test.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/test/saucelabs.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/vendor/backbone/test/router.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/bootstrap/js/transition.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/jquery/src/event/trigger.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/vendor/firebug-lite/src/firebug-lite-debug.js",
+        "/home/dominika/myrepo/backend/app.js",
+        "/home/dominika/myrepo/frontend/app/bower_components/lodash/dist/mapping.fp.js",
+        "/home/dominika/myrepo/backend/app/routes.js"
+    ]
+}

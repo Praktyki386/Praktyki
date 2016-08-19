@@ -16,15 +16,6 @@
     <link rel="stylesheet" href="styles/custom.css">
     <!-- endbuild -->
 
-      <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
   </head>
   <body ng-app="praktykiApp">
     <!--[if lte IE 8]>
@@ -50,10 +41,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
             <li>
-                <a href="http://localhost:3000/" class="btn btn-info novbar-btn" role="button">Log in</a>
+                <a href="/logout" class="btn btn-info novbar-btn" role="button">Logout</a>
             </li>
             <li><a href="#">
-              User's Name <span class="glyphicon glyphicon-log-out" aria-label="Log out "aria-hidden="true"></span>
+              <%= user.google.name %> <span class="glyphicon glyphicon-log-out" aria-label="Log out "aria-hidden="true"></span>
             </a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
@@ -94,7 +85,7 @@
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/azzngular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
